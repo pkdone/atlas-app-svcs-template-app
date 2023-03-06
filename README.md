@@ -2,7 +2,7 @@
 
 This project aims to show you how you can prototype and debug both the front-end and back-end components of your 'full-stack' [Atlas App Services](https://www.mongodb.com/docs/atlas/app-services/) application without having to develop code using the App Services Console. Additionally, you don't have to rebuild and re-deploy the application to the App Services runtime each time you need to test a change you've made. Instead, you can use your favourite local workstation tools, such as [Node.js](https://nodejs.org/), [VS Code](https://code.visualstudio.com/), and [Chrome DevTools](https://developer.chrome.com/docs/devtools/) for development and testing of code.
 
-TODO: Embed YouTube quick demo video.
+**TODO: Embed YouTube quick demo video**
 
 This approach not only allows developers to be shielded from each other when developing and testing the application's code on their workstations, but it also means that each developer's deployed App Services application is independent of any version of the application deployed by another developer. Even when there are multiple developers, they don't clash with each other when they are all concurrently working on the same project codebase.
 
