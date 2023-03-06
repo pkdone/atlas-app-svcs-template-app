@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "initdb": "node deploy-tools/src/initialize-database.js",
+    "build": "node deploy-tools/src/convert-to-app-svcs-proj.js"
+  }
+}
