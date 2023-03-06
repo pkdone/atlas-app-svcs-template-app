@@ -6,6 +6,9 @@ TODO: Embed YouTube quick demo video.
 
 This approach not only allows developers to be shielded from each other when developing and testing the application's code on their workstations, but it also means that each developer's deployed App Services application is independent of any version of the application deployed by another developer. Even when there are multiple developers, they don't clash with each other when they are all concurrently working on the same project codebase.
 
+
+## Project Content
+
 You can use this 'skeleton' project as the basis of a new [Atlas App Services](https://www.mongodb.com/docs/atlas/app-services/apps/create/) project. The project has the following features:
 
 - Sample [Atlas](https://www.mongodb.com/atlas) [MongoDB](https://www.mongodb.com/docs/manual/) database (in this case, with an example `persons` collection).
@@ -64,7 +67,7 @@ Both the back-end and front-end components can each be developed and tested loca
 
 ![Build / Deployment Conversion Process](convert.png)
 
-The project code makes extensive use of 'modern' JavaScript (i.e. leveraging ECMAScript 2018+ / ES9+ standards).
+The project code makes extensive use of 'modern' JavaScript (i.e. leveraging [ECMAScript 2018+ / ES9+ standards](https://en.wikipedia.org/wiki/ECMAScript_version_history)).
 
 
 ### Front-end Code Development
