@@ -141,7 +141,9 @@ Within your JavaScript code, you can add one of the following new lines above an
 
 ```javasscript
     // ACTION: COMMENT
+
     // ACTION: UNCOMMENT
+    
     // ACTION: REMOVE
 ```
 
