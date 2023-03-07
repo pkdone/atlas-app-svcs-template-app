@@ -139,9 +139,9 @@ You can create as many JavaScript `.js` files as you desire inside the `back-end
 
 Within your JavaScript code, you can add one of the following new lines above an existing line in the source code if you want the existing line to be commented-out, uncommented, or removed, respectively, during the code conversion process:
 
-- `ACTION: COMMENT`
-- `ACTION: UNCOMMENT`
-- `ACTION: REMOVE`
+- // `ACTION: COMMENT`
+- // `ACTION: UNCOMMENT`
+- // `ACTION: REMOVE`
 
 This capability is helpful if you know you have some code that will either work locally in Node.js or remotely in the App Services runtime, but not both. Alternatively, you can use the `AppSvsUtil.isRunningInAppSvcs()` function (from `back-end/src/app-svcs-util.js`) to dictate a specific code path to execute at runtime.
 
