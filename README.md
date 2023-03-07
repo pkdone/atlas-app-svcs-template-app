@@ -139,11 +139,11 @@ You can create as many JavaScript `.js` files as you desire inside the `back-end
 
 Within your JavaScript code, you can add one of the following new lines above an existing line in the source code if you want the existing line to be commented-out, uncommented, or removed, respectively, during the code conversion process:
 
-```javasscript
+```javascript
     // ACTION: COMMENT
 
     // ACTION: UNCOMMENT
-    
+
     // ACTION: REMOVE
 ```
 
