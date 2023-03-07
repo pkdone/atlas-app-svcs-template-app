@@ -69,7 +69,7 @@ Both the back-end and front-end components can each be developed and tested loca
 
 ![Build / Deployment Conversion Process](convert.png)
 
-The project code makes extensive use of 'modern' JavaScript (i.e. leveraging [ECMAScript 2018+ / ES9+ standards](https://en.wikipedia.org/wiki/ECMAScript_version_history)).
+The project code makes extensive use of 'modern' JavaScript (i.e. leveraging [ECMAScript 2020+ / ES11+ standards](https://en.wikipedia.org/wiki/ECMAScript_version_history)).
 
 
 ### Front-end Code Development
