@@ -8,16 +8,27 @@ const appRegion = process.env.REACT_APP_APP_REGION;
 const app = new Realm.App({ id: appId });
 const appUrl = `https://${appRegion}.data.mongodb-api.com/app/${app.id}`;
 
-// Create a component that displays the given user's details
-function UserDetail({ user }) {
+// Component to display the main details and allow log out
+function UserDetail({ user, hostEnvInfo, firstSavedPerson, setUser }) {
+  const loginOut = async () => {
+    await user.logOut();
+    setUser(null);
+  };
+
   return (
     <div>
       <h1>Logged in with anonymous id: {user.id}</h1>
+      <h2>Functions host IP address is: {hostEnvInfo?.runtimeIPAddress}</h2>
+      <h2>
+        First person's info from database:
+        {firstSavedPerson?.firstName} {firstSavedPerson?.lastName} (DOB: {firstSavedPerson?.dateOfBirth})
+      </h2>
+      <h2><button onClick={loginOut}>Log Out</button></h2>
     </div>
   );
 }
 
-// Create a component that lets an anonymous user log in
+// Component to perform anonymous user log in
 function Login({ setUser, setHostEnvInfo, setFirstSavedPerson }) {
   const loginAnonymous = async () => {
     const user = await app.logIn(Realm.Credentials.anonymous());
@@ -35,28 +46,7 @@ function Login({ setUser, setHostEnvInfo, setFirstSavedPerson }) {
   return <button onClick={loginAnonymous}>Log In</button>;
 }
 
-// Show functions host ip address
-function HostIPAddress({ hostEnvInfo }) {
-  return (
-    <div>
-      <h2>Functions host IP address is: {hostEnvInfo?.runtimeIPAddress}</h2>
-    </div>
-  );
-}
-
-// Show first person listed in in back end database collection
-function FirstPersonInfo({ firstSavedPerson }) {
-  return (
-    <div>
-      <h2>First person's info from database: {firstSavedPerson?.firstName} {firstSavedPerson?.lastName} (DOB: {firstSavedPerson?.dateOfBirth})</h2>
-    </div>
-  );
-}
-
-
 function App() {
-  // Keep the logged in Realm user in local state. This lets the app re-render
-  // whenever the current user changes (e.g. logs in or logs out).
   const [user, setUser] = React.useState(app.currentUser);
   const [hostEnvInfo, setHostEnvInfo] = React.useState({});
   const [firstSavedPerson, setFirstSavedPerson] = React.useState({});
@@ -65,11 +55,8 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          {user ? <UserDetail user={user} /> : <Login setUser={setUser} setHostEnvInfo={setHostEnvInfo} setFirstSavedPerson={setFirstSavedPerson}/>}
-          {hostEnvInfo ? <HostIPAddress hostEnvInfo={hostEnvInfo} /> : {}} 
-          {firstSavedPerson ? <FirstPersonInfo firstSavedPerson={firstSavedPerson} /> : {}} 
-        </p>
+        {user ? <UserDetail user={user} hostEnvInfo={hostEnvInfo} firstSavedPerson={firstSavedPerson} setUser={setUser} />
+              : <Login setUser={setUser} setHostEnvInfo={setHostEnvInfo} setFirstSavedPerson={setFirstSavedPerson}/>}
       </header>
     </div>
   );
