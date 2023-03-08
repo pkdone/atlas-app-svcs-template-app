@@ -157,8 +157,8 @@ async function generateFunctionsResourcesForSrcFile(filename, functionsDir, func
 // Create the JS file config files for invidual JS function
 //
 function generateFuncContentInNewDirectory(funcDir, configFile, functionMetadata, isFirstFunc) {
-  const FUNCS_TO_TRANSFER_PREFIXES = ['GET_', 'POST_', 'PUT_', 'DELETE_', 'PATCH_', 'PUB_', 'PRIV_'];  
-  const matches = functionMetadata.functionName.match(/^(\S+_)\S+/);  // Get the prefix for the function (if any)
+  const FUNCS_TO_TRANSFER_PREFIXES = ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'PUB', 'PRIV'];  
+  const matches = functionMetadata.functionName.match(/^([A-Z]+)_[^\s_]+(_[A-Z]+)?$/);  // Get the prefix for the function (if any)
 
   if (matches) {
     const prefix = matches[1];
@@ -185,13 +185,14 @@ function generateFunctionConfigFile(isFirstFunc, configFile, functionMetadata) {
     fs.appendFileSync(configFile, ',');
   }
 
-  const isPrivate = functionMetadata.functionName.startsWith("PUB_") ? false : true;
+  const isPrivate = !functionMetadata.functionName.startsWith("PUB_");
+  const doRunAsSystem = !functionMetadata.functionName.endsWith("_AA");
   fs.appendFileSync(configFile, '\n');
 
   const configJson = `  {
     "name": "${functionMetadata.functionName}",
     "private": ${isPrivate},
-    "run_as_system": true,    
+    "run_as_system": ${doRunAsSystem},    
     "disable_arg_logs": true
   }`;
 
@@ -321,7 +322,7 @@ function generateHTTPSEndpointForFunc(configFile, functionName, isFirstEndpoint)
 
   let httpMethod = null;
   let resourceName = null;
-  const matches = functionName.match(/^(\S+)_(\S+)/);  // Look for func names beginning with a REST prefix
+  const matches = functionName.match(/^([A-Z]+)_([^\s_]+)(_[A-Z]+)?$/);  // Look for func names beginning with a REST prefix
 
   if (matches) {
     httpMethod = matches[1];

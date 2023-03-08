@@ -132,9 +132,10 @@ This process first incorporates the app services-related contents from the `temp
 
 You can create as many JavaScript `.js` files as you desire inside the `back-end/src` folder. The code conversion process uses the following rules to pick up appropriate functions defined in your various `.js` files and convert each to an App Services Function:
 
-- Functions with names prefixed with **`PRIV_`** are included with their permissions set to **private** and authentication set to **system**.
-- Functions with names prefixed with **`PUB_`** are included with their permissions set to **public** (can be invoked remotely) and authentication set to **system**.
-- Functions with names prefixed with **`GET_`**, **`POST_`**, **`PUT_`**, **`DELETE_`**, **`PATCH_`** are included with their permissions set to **private** and authentication set to **system**. A corresponding HTTP Endpoint is also generated for each function with its HTTP Method set to the respective REST API Verb implied by the function's name prefix.
+- Functions with names prefixed with **`PRIV_`** are included with their permissions set to **private**.
+- Functions with names prefixed with **`PUB_`** are included with their permissions set to **public** so they can be invoked remotely.
+- Functions with names prefixed with **`GET_`**, **`POST_`**, **`PUT_`**, **`DELETE_`**, **`PATCH_`** are included with their permissions set to **private**. A corresponding HTTP Endpoint is also generated for each function with its HTTP Method set to the respective REST API Verb implied by the function's name prefix.
+- For all the functions that match the above prefixes, the function's Authentication property is set to **system** unless the function name has the suffix **`_AA`** (e.g. `GET_personInfo_AA`), which indicates that it requires Application Authentication (if this is the case, ensure you have defined appropriate [Data Access Rules](https://www.mongodb.com/docs/atlas/app-services/rules/) for all database resources that the function's code will attempt to access. You can include these rules in the template [app configuration](https://www.mongodb.com/docs/atlas/app-services/reference/config/) hanging off `template/data_sources/mongodb-atlas`.
 - The conversion process ignores functions that do not match the above prefixes and does not include these in the final App Services deployed app.
 
 Within your JavaScript code, you can add one of the following new lines above an existing line in the source code if you want the existing line to be commented-out, uncommented, or removed, respectively, during the code conversion process:

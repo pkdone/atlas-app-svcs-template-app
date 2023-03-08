@@ -62,4 +62,4 @@ cd ${ROOT_FOLDER}
 
 # Print the app's URL
 realm-cli function run --app="${APP_NAME}" --name PUB_getAppVirtualHostingURL
-printf "\nIt may take a few minutes for DNS to update for the URL above to be accessible\n"
+printf "\nIt may take a few minutes for DNS to update for the URL above to be accessible\n\n"
