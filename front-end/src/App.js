@@ -21,7 +21,8 @@ function UserDetail({ user, hostEnvInfo, firstSavedPerson, setUser }) {
       <h2>Functions host IP address is: {hostEnvInfo?.runtimeIPAddress}</h2>
       <h2>
         First person's info from database:&nbsp;
-        {firstSavedPerson?.firstName} {firstSavedPerson?.lastName}
+        {firstSavedPerson?.firstName} {firstSavedPerson?.lastName}&nbsp;
+        (DOB: {firstSavedPerson?.dateOfBirth}        
       </h2>
       <h2><button onClick={loginOut}>Log Out</button></h2>
     </div>
