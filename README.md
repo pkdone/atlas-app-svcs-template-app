@@ -6,7 +6,7 @@ This project aims to show you how you can prototype and debug both the front-end
 
 This approach doesn't just shield developers from each other when developing and testing the application's code on their workstations. It also means that each developer's deployed App Services runtime application is independent of any version of the runtime application deployed by another developer. Even when there are multiple developers, they don't clash with each other when they are all concurrently working on the same project codebase.
 
-This project supports building a 'full-stack' App Services app, including a 'front-end' web app. If you only want the app to implement 'back-end' services like HTTP Endpoints, Triggers and Remote Functions., refer to the sibling Github project [atlas-app-svcs-template-backend](https://github.com/pkdone/atlas-app-svcs-template-backend) instead.
+This project supports building a 'full-stack' App Services app, including a 'front-end' web app. If you only want the app to implement 'back-end' services like HTTP Endpoints, Triggers and Remote Functions, refer to the sibling Github project [atlas-app-svcs-template-backend](https://github.com/pkdone/atlas-app-svcs-template-backend) instead.
 
 
 ## Project Content
