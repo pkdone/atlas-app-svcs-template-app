@@ -25,7 +25,7 @@ function PRIV_getPersonsManager(personsDBCollName) {
     //
     async getPersonInfo(personId) {  
       const queryFilter = {personId: personId}; 
-      const queryProjection = {_id: 0, firstName: 1, lastName: 1, dateOfBirth: 1};
+      const queryProjection = {_id: 0, firstName: 1, lastName: 1};
       const queryOptions = {projection: queryProjection};  // Used by standalone node.js only
       // ACTION: REMOVE   (node.js only)
       return await this.personsCollection.findOne(queryFilter, queryOptions); 

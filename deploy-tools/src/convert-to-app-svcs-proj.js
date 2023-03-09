@@ -51,7 +51,7 @@ const readline = require('readline');
     const appTemplateDir = "template";
     const generatedAppDir = "build";
     const deploymentRegion = process.env.APP_SVCS_DEPLOY_REGION;
-    const deploymentRegionsMetadataFile = path.join("metadata", 'atlas-app-services-regions.json')
+    const deploymentRegionsMetadataFile = path.join("metadata", 'atlas-app-services-regions.json');
     const dbClusterName = process.env.DB_CLUSTER_NAME;
     const dbName = process.env.DB_NAME;
     await generateAppSrvcsApp(sourceFolder, appName, appTemplateDir, generatedAppDir, deploymentRegion, deploymentRegionsMetadataFile, dbClusterName,dbName);
