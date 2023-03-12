@@ -4,7 +4,7 @@ const {PRIV_getAppSvsUtil} = require("./app-svcs-util");
 
 
 // TEST WRAPPER  (similar to App Services' function test console, but for standalone Node.js)
-(async() => {
+(async () => {
   const appSvsUtil = PRIV_getAppSvsUtil();
   appSvsUtil.logStartTimestamp();
   const result = await PUB_getDeployedAppMetadata();

@@ -6,7 +6,7 @@ const {PRIV_getConstants} = require("../../back-end/src/constants");
 //
 // Seed some of the Guvnor database collect with data and ensure the required indexes exist
 //
-(async() => {
+(async () => {
   let client;
 
   try {
