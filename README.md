@@ -73,6 +73,8 @@ Both the back-end and front-end components can each be developed and tested loca
 
 The project code makes extensive use of 'modern' JavaScript (i.e. leveraging [ECMAScript 2020+ / ES11+ standards](https://en.wikipedia.org/wiki/ECMAScript_version_history)).
 
+The project optionally supports developing and running in [Development Containers](https://containers.dev/) in [VS Code](https://code.visualstudio.com/docs/devcontainers/containers) or in [GitHub Codespaces]{https://docs.github.com/en/codespaces/overview).
+
 
 ### Front-end Code Development
 
